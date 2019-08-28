@@ -3,7 +3,8 @@
 <head>
 <!-- Marketo Variable Definitions -->
 <meta class="mktoString" id="varPreviewCTAlink" mktoname="Preview CTA Button Link" default="http://mylink" mktomodulescope="true" />
-<meta class="mktoString" id="varPreviewText" mktoname="Preview Text" default="(Optional) This text will appear in the inbox preview, but not the email body. It can be used to supplement the email subject line or even summarize the email's contents. Extended text preheaders (~490 characters) seems like a better UX for anyone using a screenreader or voice-command apps like Siri to dictate the contents of an email. If this text is not included, email clients will automatically populate it using the text (including image alt text) at the start of the email's body." mktomodulescope="false" />
+<meta class="mktoString" id="varPreviewCTAlinktext" mktoname="Preview CTA Button Link Text" default="Read More" mktomodulescope="true" />
+<meta class="mktoString" id="varPreviewText" mktoname="Preview Text" default="Optional - This text will appear in the inbox preview---------------------." mktomodulescope="false" />
 
 <!-- END Marketo Variable Definitions -->
 
@@ -212,7 +213,7 @@ u ~ div .email-container {
   
   <!-- Visually Hidden Preheader Text : BEGIN -->
   <div class="row">
-    <div style="float:left; text-align: left; width:50%">Optional - This text will appear in the inbox preview---------------------.</div>
+    <div style="float:left; text-align: left; width:50%">${varPreviewText}</div>
     <div style="font-weight: bold; float:right;">
       <webversion>View as a Web Page</webversion>
     </div>
@@ -266,7 +267,7 @@ u ~ div .email-container {
                 
                 <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
                   <tr>
-                    <td class="button-td button-td-primary" style="border-radius: 4px; background: #ffffff;"><a class="button-a button-a-primary" href="${varPreviewCTAlink}" style="background: #ffffff; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">Primary Button</a></td>
+                    <td class="button-td button-td-primary" style="border-radius: 4px; background: #ffffff;"><a class="button-a button-a-primary" href="${varPreviewCTAlink}" style="background: #ffffff; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">${varPreviewCTAlinktext}</a></td>
                   </tr>
                 </table>
                 
