@@ -2,9 +2,13 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
 <!-- Marketo Variable Definitions -->
-<meta class="mktoString" id="varPreviewCTAlink" mktoname="Preview CTA Button Link" default="http://mylink" mktomodulescope="true" />
-<meta class="mktoString" id="varPreviewCTAlinktext" mktoname="Preview CTA Button Link Text" default="Read More" mktomodulescope="true" />
+<meta class="mktoString" id="varPreviewCTALink" mktoname="Preview CTA Button Link" default="http://mylink" mktomodulescope="true" />
+<meta class="mktoString" id="varPreviewCTALinkText" mktoname="Preview CTA Button Link Text" default="Read More" mktomodulescope="true" />
 <meta class="mktoString" id="varPreviewText" mktoname="Preview Text" default="Optional - This text will appear in the inbox preview---------------------." mktomodulescope="false" />
+<meta class="mktoString" id="but2ColLeftLink" mktoname="2 Col Left Link" default="http://mylink" mktomodulescope="true" />
+<meta class="mktoString" id="but2ColLeftLinkText" mktoname="2 Col Left Link Text" default="Read More" mktomodulescope="true" />
+<meta class="mktoString" id="but2ColRightLink" mktoname="2 Col Right Link" default="http://mylink" mktomodulescope="true" />
+<meta class="mktoString" id="but2ColRightLinkText" mktoname="2 Col Right Link Text" default="Read More" mktomodulescope="true" />
 
 <!-- END Marketo Variable Definitions -->
 
@@ -143,59 +147,50 @@ u ~ div .email-container {
 
 <!-- Progressive Enhancements : BEGIN -->
 <style>
+/* What it does: Hover styles for buttons */
+.button-td, .button-a {
+    transition: all 100ms ease-in;
+}
+.button-td-primary:link, .button-a-primary:link {
+    background: #CE0056 !important;
+    border-color: #CE0056 !important;
+}
+.button-td-primary:hover, .button-a-primary:hover {
+    background: #830065 !important;
+    border-color: #830065 !important;
+}
 
-	    /* What it does: Hover styles for buttons */
-	    .button-td,
-	    .button-a {
-	        transition: all 100ms ease-in;
-	    }
-		.button-td-primary:link,
-	    .button-a-primary:link {
-	        background: #CE0056 !important;
-	        border-color: #CE0056 !important;
-	    }
-	    .button-td-primary:hover,
-	    .button-a-primary:hover {
-	        background: #830065 !important;
-	        border-color: #830065 !important;
-	    }
-
-	    /* Media Queries */
-	    @media screen and (max-width: 600px) {
-
-	        /* What it does: Adjust typography on small screens to improve readability */
-	        .email-container p {
-	            font-size: 17px !important;
-	        }
-
-	    }
-
-    </style>
+/* Media Queries */
+@media screen and (max-width: 600px) {
+/* What it does: Adjust typography on small screens to improve readability */
+.email-container p {
+    font-size: 17px !important;
+}
+}
+</style>
 <!-- Progressive Enhancements : END -->
 <style>
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-
 .row {
-  max-width: 600px;
-  opacity: 0.8;
-  font-size: 10px;
-  line-height: 12px;
-  max-height: 40px;
-  overflow: hidden;
-  mso-hide: all;
-  font-family: sans-serif;
-  color:black;
-  }
-  
+    max-width: 600px;
+    opacity: 0.8;
+    font-size: 10px;
+    line-height: 12px;
+    max-height: 40px;
+    overflow: hidden;
+    mso-hide: all;
+    font-family: sans-serif;
+    color: black;
+}
 /* Clear floats after the columns */
 .row:after {
-  content: "";
-  display: flex;
-  clear: both;
+    content: "";
+    display: flex;
+    clear: both;
 }
-    </style>
+</style>
 </head>
 <!--
 	The email background color (#ffffff) is defined in three places:
@@ -205,140 +200,180 @@ u ~ div .email-container {
 -->
 <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #ffffff;">
 <center style="width: 100%; background-color: #ffffff;">
-  <!--[if mso | IE]>
+<!--[if mso | IE]>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff;">
     <tr>
     <td>
     <![endif]--> 
-  
-  <!-- Visually Hidden Preheader Text : BEGIN -->
-  <div class="row">
-    <div style="float:left; text-align: left; width:50%">${varPreviewText}</div>
-    <div style="font-weight: bold; float:right;">
-      <webversion>View as a Web Page</webversion>
-    </div>
+
+<!-- Visually Hidden Preheader Text : BEGIN -->
+<div class="row">
+  <div style="float:left; text-align: left; width:50%">${varPreviewText}</div>
+  <div style="font-weight: bold; float:right;">
+    <webversion>View as a Web Page</webversion>
   </div>
-  <!-- Visually Hidden Preheader Text : END --> 
-  
-  <!-- Create white space after the desired preview text so email clients don’t pull other distracting text into the inbox preview. Extend as necessary. --> 
-  <!-- Preview Text Spacing Hack : BEGIN -->
-  <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;"> &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp; </div>
-  <!-- Preview Text Spacing Hack : END --> 
-  
-  <!--
+</div>
+<!-- Visually Hidden Preheader Text : END --> 
+
+<!-- Create white space after the desired preview text so email clients don’t pull other distracting text into the inbox preview. Extend as necessary. --> 
+<!-- Preview Text Spacing Hack : BEGIN -->
+<div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;"> &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp; </div>
+<!-- Preview Text Spacing Hack : END --> 
+
+<!--
             Set the email width. Defined in two places:
             1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 600px.
             2. MSO tags for Desktop Windows Outlook enforce a 600px width.
         -->
-  <div style="max-width: 600px; margin: 0 auto;" class="email-container"> 
-    <!--[if mso]>
+<div style="max-width: 600px; margin: 0 auto;" class="email-container">
+<!--[if mso]>
             <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="600">
             <tr>
             <td>
             <![endif]--> 
-    
-    <!-- Email Body : BEGIN -->
-    <table class="mktoContainer" id="mkto-container" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
-      <!-- Email Header : BEGIN -->
-      <tr id="modLogo" mktoName="Logo Module" class="mktoModule">
-        <td style="padding: 20px 0; text-align: center"><img id="imgLogo" mktoName="Logo" class="mktoImg" src="https://carenethealthcare.com/wp-content/uploads/2019/08/Carenet-Health-logo.jpg" width="200" height="50" alt="alt_text" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"></td>
+
+<!-- Email Body : BEGIN -->
+<table class="mktoContainer" id="mkto-container" align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
+<!-- Email Header : BEGIN -->
+<tr id="modLogo" mktoName="Logo Module" class="mktoModule">
+  <td style="padding: 20px 0; text-align: center"><img id="imgLogo" mktoName="Logo" class="mktoImg" src="https://carenethealthcare.com/wp-content/uploads/2019/08/Carenet-Health-logo.jpg" width="200" height="50" alt="alt_text" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"></td>
+</tr>
+<!-- Email Header : END --> 
+
+<!-- Hero Image, Flush : BEGIN -->
+<tr id="modHeaderImage" mktoName="Header Image Module" class="mktoModule">
+  <td style="background-color: #ffffff;"><img id="imgHeaderBanner" mktoName="Header Banner" class="mktoImg g-img" src="https://hub.carenethealthcare.com/rs/824-SWI-706/images/ICYMI_2019Banner_v6.png" width="600" height="" alt="alt_text" border="0" style="width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto; display: block;"></td>
+</tr>
+<!-- Hero Image, Flush : END --> 
+
+<!-- 1 Column Text + Button : BEGIN -->
+<tr id="modTitlePara" mktoName="Title & Paragraph Module" class="mktoModule">
+  <td style="background-color: #ffffff;"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+      <tr>
+        <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;"><h1 id="previewCTAtitle" mktoName="Preview CTA Title" class="mktoText" style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 25px; line-height: 30px; color: #333333; font-weight: normal;">Title</h1>
+          <p id="previewCTAparagraph" mktoName="Preview CTA Paragraph" class="mktoText" style="margin: 0;">If summer is a time to slow down a bit, those of us in healthcare engagement didn’t get the message. The new insights emerging over the past several weeks have been important—and sometimes overwhelming to keep up with in real time. In case you missed them, we’ve gathered several of the recent headlines for quick reading. You can always find more news and resources by following us on LinkedIn and Twitter.</p></td>
       </tr>
-      <!-- Email Header : END --> 
-      
-      <!-- Hero Image, Flush : BEGIN -->
-      <tr id="modHeaderImage" mktoName="Header Image Module" class="mktoModule">
-        <td style="background-color: #ffffff;"><img id="imgHeaderImage" mktoName="Header Image" class="mktoImg" src="https://hub.carenethealthcare.com/rs/824-SWI-706/images/ICYMI_2019Banner_v6.png" width="600" height="" alt="alt_text" border="0" style="width: 100%; max-width: 600px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto; display: block;" class="g-img"></td>
-      </tr>
-      <!-- Hero Image, Flush : END --> 
-      
-      <!-- 1 Column Text + Button : BEGIN -->
-      <tr id="modTitlePara" mktoName="Title & Paragraph Module" class="mktoModule">
-        <td style="background-color: #ffffff;"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+    </table></td>
+</tr>
+<tr id="modButton" mktoName="Button Module" class="mktoModule">
+  <td style="background-color: #ffffff;"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+      <tr>
+        <td style="padding: 0 20px;"><!-- Button : BEGIN -->
+          
+          <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
             <tr>
-              <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;"><h1 id="previewCTAtitle" mktoName="Preview CTA Title" class="mktoText" style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 25px; line-height: 30px; color: #333333; font-weight: normal;">Title</h1>
-                <p id="previewCTAparagraph" mktoName="Preview CTA Paragraph" class="mktoText" style="margin: 0;">If summer is a time to slow down a bit, those of us in healthcare engagement didn’t get the message. The new insights emerging over the past several weeks have been important—and sometimes overwhelming to keep up with in real time. In case you missed them, we’ve gathered several of the recent headlines for quick reading. You can always find more news and resources by following us on LinkedIn and Twitter.</p></td>
+              <td class="button-td button-td-primary" style="border-radius: 4px; background: #ffffff;"><a class="button-a button-a-primary" href="${varPreviewCTALink}" style="background: #ffffff; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">${varPreviewCTALinkText}</a></td>
             </tr>
-          </table></td>
+          </table>
+          
+          <!-- Button : END --></td>
       </tr>
-      <tr id="modButton" mktoName="Button Module" class="mktoModule">
-        <td style="background-color: #ffffff;"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+    </table></td>
+</tr>
+<tr id="modList" mktoName="List Module" class="mktoModule">
+  <td style="background-color: #ffffff;"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+      <tr>
+        <td id="txtListContent" mktoName="List Content" class="mktoText" style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;"><h2 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 18px; line-height: 22px; color: #333333; font-weight: bold;">Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat.</h2>
+          <ul style="padding: 0; margin: 0 0 10px 0; list-style-type: disc;">
+            <li style="margin:0 0 10px 30px;" class="list-item-first">A list item.</li>
+            <li style="margin:0 0 10px 30px;">Another list item here.</li>
+            <li style="margin: 0 0 0 30px;" class="list-item-last">Everyone gets a list item, list items for everyone!</li>
+          </ul>
+          <p style="margin: 0;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat.</p></td>
+      </tr>
+    </table></td>
+</tr>
+<!-- 1 Column Text + Button : END --> 
+
+<!-- 2 Even Columns : BEGIN -->
+<tr id="modTwoColumns" mktoName="2 Column Module" class="mktoModule">
+  <td style="padding:10px; background-color: #ffffff;">
+  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+  <td valign="top" width="50%">
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr>
+      <td style="text-align: center; padding: 0 10px;"><img id="img2ColLeft" mktoName="2 Col Image Left" class="mktoImg" src="https://via.placeholder.com/200" width="200" height="" alt="alt_text" border="0" style="width: 100%; max-width: 200px; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"></td>
+    </tr>
+    <tr>
+      <td style="text-align: left; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding: 10px 10px 0;"><p id="txt2ColLeft" mktoName="2 Col Text Left" class="mktoText" style="margin: 0;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor.</p></td>
+    </tr>
+    <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
+      <tr>
+        <td style="padding: 20px;"><!-- Button : BEGIN -->
+          
+          <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
             <tr>
-              <td style="padding: 0 20px;"><!-- Button : BEGIN -->
-                
-                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
-                  <tr>
-                    <td class="button-td button-td-primary" style="border-radius: 4px; background: #ffffff;"><a class="button-a button-a-primary" href="${varPreviewCTAlink}" style="background: #ffffff; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">${varPreviewCTAlinktext}</a></td>
-                  </tr>
-                </table>
-                
-                <!-- Button : END --></td>
+              <td class="button-td button-td-primary" style="border-radius: 4px; background: #ffffff;"><a class="button-a button-a-primary" href="${but2ColLeftLink}" style="background: #ffffff; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">${but2ColLeftLinkText}</a></td>
             </tr>
-          </table></td>
+          </table>
+          
+          <!-- Button : END --></td>
       </tr>
-      <tr id="modList" mktoName="List Module" class="mktoModule">
-        <td style="background-color: #ffffff;"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-            <tr>
-              <td id="txtListContent" mktoName="List Content" class="mktoText" style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;"><h2 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 18px; line-height: 22px; color: #333333; font-weight: bold;">Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat.</h2>
-                <ul style="padding: 0; margin: 0 0 10px 0; list-style-type: disc;">
-                  <li style="margin:0 0 10px 30px;" class="list-item-first">A list item.</li>
-                  <li style="margin:0 0 10px 30px;">Another list item here.</li>
-                  <li style="margin: 0 0 0 30px;" class="list-item-last">Everyone gets a list item, list items for everyone!</li>
-                </ul>
-                <p style="margin: 0;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat.</p></td>
-            </tr>
-          </table></td>
-      </tr>
-      <!-- 1 Column Text + Button : END --> 
-      
-      <!-- 2 Even Columns : BEGIN -->
-      <tr id="modTwoColumns" mktoName="2 Column Module" class="mktoModule">
-        <td style="padding: 0 10px 40px 10px; background-color: #ffffff;"><table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-              <td valign="top" width="50%"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                  <tr>
-                    <td style="text-align: center; padding: 0 10px;"><img id="img2ColLeft" mktoName="2 Col Image Left" class="mktoImg" src="https://via.placeholder.com/200" width="200" height="" alt="alt_text" border="0" style="width: 100%; max-width: 200px; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"></td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: left; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding: 10px 10px 0;"><p id="txt2ColLeft" mktoName="2 Col Text Left" class="mktoText" style="margin: 0;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor.</p></td>
-                  </tr>
-                </table></td>
-              <td valign="top" width="50%"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                  <tr>
-                    <td style="text-align: center; padding: 0 10px;"><img id="img2ColRight" mktoName="2 Col Image Right" class="mktoImg" src="https://via.placeholder.com/200" width="200" height="" alt="alt_text" border="0" style="width: 100%; max-width: 200px; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"></td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: left; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding: 10px 10px 0;"><p id="txt2ColRight" mktoName="2 Col Text Right" class="mktoText" style="margin: 0;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor.</p></td>
-                  </tr>
-                </table></td>
-            </tr>
-          </table></td>
-      </tr>
-      <!-- Two Even Columns : END --> 
-      
-      <!-- Clear Spacer : BEGIN -->
-      <tr id="modSpacer" mktoName="Spacer Module" class="mktoModule">
-        <td aria-hidden="true" height="40" style="font-size: 0px; line-height: 0px;">&nbsp;</td>
-      </tr>
-      <!-- Clear Spacer : END --> 
-      
-      <!-- 1 Column Text : BEGIN -->
-      <tr id="modText" mktoName="Text Module" class="mktoModule">
-        <td style="background-color: #ffffff;"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-            <tr>
-              <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;"><p id="txtParagraph" mktoName="Paragraph Text" class="mktoText" style="margin: 0;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat.</p></td>
-            </tr>
-          </table></td>
-      </tr>
-      <!-- 1 Column Text : END -->
-      
     </table>
-    <!-- Email Body : END --> 
+    </td>
     
-    <!--[if mso]>
+    <td valign="top" width="50%">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+          <td style="text-align: center; padding: 0 10px;"><img id="img2ColRight" mktoName="2 Col Image Right" class="mktoImg" src="https://via.placeholder.com/200" width="200" height="" alt="alt_text" border="0" style="width: 100%; max-width: 200px; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"></td>
+        </tr>
+        <tr>
+          <td style="text-align: left; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding: 10px 10px 0;"><p id="txt2ColRight" mktoName="2 Col Text Right" class="mktoText" style="margin: 0;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor.</p></td>
+        </tr>
+        <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
+          <tr>
+            <td style="background-color: #ffffff;"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                  <td style="padding: 20px;"><!-- Button : BEGIN -->
+                    
+                    <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
+                      <tr>
+                        <td class="button-td button-td-primary" style="border-radius: 4px; background: #ffffff;"><a class="button-a button-a-primary" href="${but2ColRightLink}" style="background: #ffffff; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">${but2ColRightLinkText}</a></td>
+                      </tr>
+                    </table>
+                    
+                    <!-- Button : END --></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+        </td>
+        
+        </tr>
+        
+      </table>
+    </td>
+    
+    </tr>
+    
+    
+    <!-- Two Even Columns : END --> 
+    
+    <!-- Clear Spacer : BEGIN -->
+    <tr id="modSpacer" mktoName="Spacer Module" class="mktoModule">
+      <td aria-hidden="true" height="40" style="font-size: 0px; line-height: 0px;">&nbsp;</td>
+    </tr>
+    <!-- Clear Spacer : END --> 
+    
+    <!-- 1 Column Text : BEGIN -->
+    <tr id="modText" mktoName="Text Module" class="mktoModule">
+      <td style="background-color: #ffffff;"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+          <tr>
+            <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;"><p id="txtParagraph" mktoName="Paragraph Text" class="mktoText" style="margin: 0;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat.</p></td>
+          </tr>
+        </table></td>
+    </tr>
+    <!-- 1 Column Text : END -->
+    
+  </table>
+  <!-- Email Body : END --> 
+  
+  <!--[if mso]>
             </td>
             </tr>
             </table>
-            <![endif]--> 
+            <![endif]-->
   </div>
   
   <!-- Full Bleed Background Section : BEGIN -->
@@ -357,7 +392,7 @@ u ~ div .email-container {
                 San Antonio, TX 78230 US<br>
                 (210) 595-2000</span> <br>
                 <br>
-                <a href="https://www.google.com" style="color: #FFFFFF;text-decoration: underline;">Email Preference Center</a> | <a href="https://www.google.com" style="color: #FFFFFF;text-decoration: underline;">Unsubscribe</a></td>
+                <a href="https://hub.carenethealthcare.com/OPR-Email-Preference-Center_LP-Email-Preference-Center-2.html" style="color: #FFFFFF;text-decoration: underline;">Email Preference Center</a> | <a href="{{system.unsubscribeLink}}" style="color: #FFFFFF;text-decoration: underline;">Unsubscribe</a></td>
             </tr>
           </table>
           <!--[if mso]>
@@ -375,6 +410,6 @@ u ~ div .email-container {
     </tr>
     </table>
     <![endif]-->
-</center>
+  </center>
 </body>
 </html>
